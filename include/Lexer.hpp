@@ -10,7 +10,7 @@ class Lexer {
 private:
     std::wstring code;
     std::vector<Token> tokens;
-    int pos = 0;
+    unsigned int pos = 0;
 
 public:
     Lexer(std::wstring code);
@@ -18,3 +18,8 @@ public:
     std::vector<Token> CodeAnalysis();
 
 };
+    
+bool isDataType(std::wstring input);
+bool isOperator(std::wstring input);
+bool isVar(std::wstring input);
+

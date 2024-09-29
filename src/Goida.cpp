@@ -18,7 +18,6 @@ TODO:
 - Добавить поддержку русского языка
 - Добавить токены для ' " 
 - UTF-8 to ANSCI
-
 */
 
 std::wstring readFromFile(std::string path) {
@@ -58,8 +57,8 @@ int main(int argc, char* argv[]) {
 
    std::vector <Token> tokens =  lexer.CodeAnalysis();
 
-    for (int i = 0; i < tokens.size(); i++) {
-        std::wcout << tokens[i].TypetoWstring() << L" ";
+    for (unsigned int i = 0; i < tokens.size(); i++) {
+        std::wcout << L"|" << tokens[i].value << L"|" << tokens[i].pos << L"|" << tokens[i].TypetoWstring() << L"|" << std::endl;
     }
 
 }

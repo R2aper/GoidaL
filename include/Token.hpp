@@ -27,9 +27,9 @@ class Token {
 public:
     TokenType type;
     std::wstring value;
-    int pos;
+    unsigned int pos;
 
-    Token(TokenType type, std::wstring value, int pos);
+    Token(TokenType type, std::wstring value, unsigned int pos);
 
     std::wstring TypetoWstring();
 

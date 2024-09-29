@@ -2,7 +2,7 @@
 
 #include "../include/Token.hpp"
 
-Token::Token(TokenType type, std::wstring value, int pos) {
+Token::Token(TokenType type, std::wstring value, unsigned int pos) {
     this->type = type;
     this->value = value;
     this->pos = pos;
@@ -42,4 +42,5 @@ std::wstring Token::TypetoWstring() {
     } else if(type == TokenType::END) {
         return L"END";
     }
+    return L"";
 }
