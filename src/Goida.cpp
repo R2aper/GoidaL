@@ -3,39 +3,49 @@
 #include <vector>
 #include <fstream>
 
+
 #include "../include/Lexer.hpp"
 #include "../include/Token.hpp"
 
 void usage() {
-    printf("Goida - piece of code   \n \
-    Usage: Goida <path to file> or Goida \n");
+    printf("Goida - piece of code\n\
+Usage: Goida <path to file>\n\
+The file need to be in ANSI format \n");
 }
 
+/*
+TODO:
+- Добавить поддержку русского языка
+- Добавить токены для ' " 
+- UTF-8 to ANSCI
 
-std::string readFromFile(std::string path) {
-    std::string code;
-    std::ifstream file(path);
+*/
+
+std::wstring readFromFile(std::string path) {
+    std::wstring code;
+    std::wifstream file(path);
     if (file.is_open()) {
-        std::string line;
+        std::wstring line;
         while (std::getline(file, line)) {
             code += line;
         }
         file.close();
     } else {
         std::cerr << "Unable to open file";
-        code = "";
+        code = L"";
     }
     return code;
 
 }
 
 int main(int argc, char* argv[]) {
-    if ( argc > 2) {
+    setlocale(LC_ALL,"RUS");
+    if ( argc != 2) {
         usage();
         return 1;
     }
 
-    std::string code;
+    std::wstring code;
 
     if (argc == 2) {
         code = readFromFile(argv[1]);
@@ -44,18 +54,12 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(argc != 2) {
-        printf("Enter code:\n");
-        std::getline(std::cin, code);
-    }
+   Lexer lexer(code);
 
-    Lexer lexer(code);
+   std::vector <Token> tokens =  lexer.CodeAnalysis();
 
-    std::vector <Token> tokens =  lexer.CodeAnalysis();
-
-    std::cout << code << std::endl;
     for (int i = 0; i < tokens.size(); i++) {
-      std::cout <<"|" << tokens[i].value << "|" << tokens[i].pos << "|"<<tokens[i].TypetoString() << "|" <<  std::endl;
+        std::wcout << tokens[i].TypetoWstring() << L" ";
     }
 
 }

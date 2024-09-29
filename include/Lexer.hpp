@@ -8,12 +8,12 @@
 
 class Lexer {
 private:
-    std::string code;
+    std::wstring code;
     std::vector<Token> tokens;
     int pos = 0;
 
 public:
-    Lexer(std::string code);
+    Lexer(std::wstring code);
 
     std::vector<Token> CodeAnalysis();
 

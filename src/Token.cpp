@@ -2,44 +2,44 @@
 
 #include "../include/Token.hpp"
 
-Token::Token(TokenType type, std::string value, int pos) {
+Token::Token(TokenType type, std::wstring value, int pos) {
     this->type = type;
     this->value = value;
     this->pos = pos;
 }
 
-std::string Token::TypetoString() {
+std::wstring Token::TypetoWstring() {
     if(type == TokenType::DATATYPE) {
-        return "DATATYPE";
+        return L"DATATYPE";
     } else if(type == TokenType::NUMBER) {
-        return "NUMBER";
+        return L"NUMBER";
     } else if(type == TokenType::VAR) {
-        return "VAR";
+        return L"VAR";
     } else if(type == TokenType::ASSIGN) {
-        return "ASSIGN";
+        return L"ASSIGN";
     } else if(type == TokenType::OPERATOR) {
-        return "OPERATOR";
+        return L"OPERATOR";
     } else if(type == TokenType::LPAREN) {
-        return "LPAREN";
+        return L"LPAREN";
     } else if(type == TokenType::RPAREN) {
-        return "RPAREN";
+        return L"RPAREN";
     } else if(type == TokenType::LBRACKET) {
-        return "LBRACKET";
+        return L"LBRACKET";
     } else if(type == TokenType::RBRACKET) {
-        return "RBRACKET";
+        return L"RBRACKET";
     } else if(type == TokenType::LSBRACKET) {
-        return "LSBRACKET";
+        return L"LSBRACKET";
     } else if(type == TokenType::RSBRACKET) {
-        return "RSBRACKET";
+        return L"RSBRACKET";
     } else if(type == TokenType::COMMA) {
-        return "COMMA";
+        return L"COMMA";
     } else if(type == TokenType::SEMICOLON) {
-        return "SEMICOLON";
+        return L"SEMICOLON";
     } else if(type == TokenType::DOT) {
-        return "DOT";
+        return L"DOT";
     } else if(type == TokenType::UNKNOWN) {
-        return "UNKNOWN";
+        return L"UNKNOWN";
     } else if(type == TokenType::END) {
-        return "END";
+        return L"END";
     }
 }

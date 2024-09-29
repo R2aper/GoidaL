@@ -9,6 +9,7 @@ enum class TokenType
     VAR,
     ASSIGN,
     OPERATOR,
+    QUOTE,
     LPAREN,
     RPAREN,
     LBRACKET,
@@ -25,11 +26,11 @@ enum class TokenType
 class Token {
 public:
     TokenType type;
-    std::string value;
+    std::wstring value;
     int pos;
 
-    Token(TokenType type, std::string value, int pos);
+    Token(TokenType type, std::wstring value, int pos);
 
-    std::string TypetoString();
+    std::wstring TypetoWstring();
 
 };
